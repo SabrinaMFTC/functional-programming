@@ -1,4 +1,5 @@
-**Disclaimer:** this tutorial is intended to summarize the contents available on [GHCup](https://www.haskell.org/ghcup/steps/#compiling-programs-with-ghc) and it's for personal study purpose only.
+> [!NOTE]
+> This tutorial is intended to summarize the contents available on [GHCup](https://www.haskell.org/ghcup/steps/#compiling-programs-with-ghc) and it's for personal study purpose only.
 
 # GHCi: GHC's Interactive Environment
 
