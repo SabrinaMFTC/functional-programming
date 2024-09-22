@@ -2,6 +2,5 @@
 -- After compiling it, enter seg <list>
 -- Input samples: "a", "ab", "abc", "abcdefgh"
 
-seg [] = ""
-seg [_] = ""
-seg (a : (b : xs)) = [b]
+seg [a, b] = b
+seg (a : (b : xs)) = b
