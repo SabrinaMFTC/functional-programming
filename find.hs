@@ -9,5 +9,7 @@ find elt lst = belongs elt lst 0
 -- Base case: return -1 if the element is not found and the list is empty
 -- Base case: return the index if the element is found
 -- Recursion: if the list is not empty, remove the actual element (a) and recursively call the helper function, incrementing the index
-belongs _ [] n = -1
-belongs elt (a : xs) n | elt == a = n | otherwise = belongs elt xs (n + 1)
+belongs _ [] idx = -1
+belongs elt (a : xs) idx
+ | elt == a = idx
+ | otherwise = belongs elt xs (idx + 1)
