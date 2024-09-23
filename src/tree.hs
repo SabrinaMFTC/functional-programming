@@ -20,52 +20,54 @@ t1 = Node 12
 ---------------------------------
 -- Sum only the leaves = 48
 ---------------------------------
-sumLeaves (Leaf value) = value
-sumLeaves (Node value leftTree rightTree) = sumLeaves leftTree + sumLeaves rightTree
+sumLeaves (Leaf v) = v
+sumLeaves (Node _ left right) = sumLeaves left + sumLeaves right
 
 ---------------------------------
 -- Sum only the other nodes = 36
 ---------------------------------
 sumNodes (Leaf _) = 0
-sumNodes (Node value leftTree rightTree) = value + sumNodes leftTree + sumNodes rightTree
+sumNodes (Node v left right) = v + sumNodes left + sumNodes right
 
 ---------------------------------
 -- Sum all nodes = 84
 ---------------------------------
-sumAll (Leaf value) = value
-sumAll (Node value leftTree rightTree) = value + sumAll leftTree + sumAll rightTree
+sumAll (Leaf v) = v
+sumAll (Node v left right) = v + sumAll left + sumAll right
 
 ---------------------------------
 -- Pre order
 ---------------------------------
 preO = [12, 8, 6, 10, 16, 14, 18]
 
-preOrder (Leaf value) = [value]
-preOrder (Node value leftTree rightTree) = [value] ++ preOrder leftTree ++ preOrder rightTree
+preOrder (Leaf v) = [v]
+preOrder (Node v left right) = [v] ++ preOrder left ++ preOrder right
 
 ---------------------------------
 -- In order
 ---------------------------------
 inO = [6, 8, 10, 12, 14, 16, 18]
 
-inOrder (Leaf value) = [value]
-inOrder (Node value leftTree rightTree) = inOrder leftTree ++ [value] ++ inOrder rightTree
+inOrder (Leaf v) = [v]
+inOrder (Node v left right) = inOrder left ++ [v] ++ inOrder right
 
 ---------------------------------
 -- Post order
 ---------------------------------
 postO = [6, 10, 8, 14, 18, 16, 12]
 
-postOrder (Leaf value) = [value]
-postOrder (Node value leftTree rightTree) = postOrder leftTree ++ postOrder rightTree ++ [value]
+postOrder (Leaf v) = [v]
+postOrder (Node v left right) = postOrder left ++ postOrder right ++ [v]
 
 ---------------------------------
 -- Tree height = 2
 ---------------------------------
 height (Leaf _) = 0
-height (Node _ leftTree rightTree) = 1 + greater (height leftTree) (height rightTree)
+height (Node _ left right) = 1 + greater (height left) (height right)
 
-greater a b | a > b = a | otherwise = b
+greater a b
+ | a > b     = a
+ | otherwise = b
 
 -- Instantiating a second tree
 t2 = Node 5
@@ -80,8 +82,12 @@ t2 = Node 5
 --      5  10 10  5
 
 --------------------------------------------------------------------------
--- Replacing value a for value b: type replace 5 555 t2 or replace 10 1000
+-- Replacing v a for v b: type replace 5 555 t2 or replace 10 1000
 --------------------------------------------------------------------------
-replace a b (Leaf value) | value == a = Leaf b | otherwise = Leaf value
+replace a b (Leaf v)
+ | v == a     = Leaf b
+ | otherwise  = Leaf v
 
-replace a b (Node value leftTree rightTree) | value == a = Node b (replace a b leftTree) (replace a b rightTree) | otherwise = Node value (replace a b leftTree) (replace a b rightTree)
+replace a b (Node v left right)
+ | v == a     = Node b (replace a b left) (replace a b right)
+ | otherwise  = Node v (replace a b left) (replace a b right)
