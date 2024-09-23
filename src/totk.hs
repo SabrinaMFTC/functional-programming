@@ -1,5 +1,7 @@
 -- This program accepts a list and a natural number k and sums each k elements
 -- After compiling it, enter totk <k> <list>
+-- Input sample: [1,1,1,1,1,1,1,1,1,1,1,1]
+-- Expected output: [5,5,2]
 
 -- The function totk calls a function tot passing as parameters: k, 0 (initial counter), 0 (initial total) and the list
 totk _ [] = []
