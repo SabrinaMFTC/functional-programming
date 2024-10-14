@@ -4,38 +4,38 @@
 
 Using as example the following program:
 
-```pl
+```prolog
 house(blue).
 house(yellow).
 ```
 
 To run prolog, type in the command line:
 
-```pl
+```prolog
 swipl phouses.pl
 ```
 
 Enter the question you have, for example:
 
-```pl
+```prolog
 house(A).
 ```
 
 The answer will be:
 
-```pl
+```prolog
 A = blue
 ```
 
 If you want to continue, type `;` and the answer will be:
 
-```pl
+```prolog
 A = yellow.
 ```
 
 If you enter:
 
-```pl
+```prolog
 house(green).
 ```
 
@@ -43,7 +43,7 @@ The answer will be `false`.
 
 If you enter:
 
-```pl
+```prolog
 house(blue).
 ```
 
@@ -51,18 +51,18 @@ The answer will be `true`.
 
 To debug:
 
-```pl
+```prolog
 trace.
 ```
 
 To stop debugging:
 
-```pl
+```prolog
 notrace.
 ```
 
 To exit prolog:
 
-```pl
+```prolog
 halt.
 ```
