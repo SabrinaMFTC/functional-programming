@@ -1,0 +1,2 @@
+house(blue).
+house(yellow).
